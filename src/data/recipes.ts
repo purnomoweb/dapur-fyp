@@ -1,3 +1,9 @@
+import imgMieJebew from '../assets/images/mie_jebew_pedas_1793374140085.jpg';
+import imgSeblak from '../assets/images/seblak_coet_rafael_1793374141342.jpg';
+import imgMatcha from '../assets/images/matcha_cloud_latte_1793374141729.jpg';
+import imgCromboloni from '../assets/images/cromboloni_chocolate_1793374141837.jpg';
+import imgCireng from '../assets/images/cireng_salju_rujak_1793374142408.jpg';
+
 export interface Recipe {
   id: string;
   slug: string;
@@ -46,7 +52,7 @@ export const RECIPES_DATA: Recipe[] = [
     categoryLabel: 'Makanan Utama',
     summary: 'Ramen khas Garut yang viral di sosial media. Perpaduan mie basah kenyal dengan chili oil, kecap manis gurih, dan minyak bawang wangi.',
     sourceViral: 'Viral Medsos Garut',
-    image: '/src/assets/images/mie_jebew_pedas_1793374140085.jpg',
+    image: imgMieJebew,
     tableOfContents: [
       { id: 'bahan', label: 'Bahan-Bahan' },
       { id: 'cara-pembuatan', label: 'Cara Pembuatan' },
@@ -150,7 +156,7 @@ export const RECIPES_DATA: Recipe[] = [
     categoryLabel: 'Makanan Utama',
     summary: 'Resep viral Rafael Tan. Kerupuk mawar putih rebus disiram sambal kencur mentah dan minyak panas mendidih langsung di atas cobek batu.',
     sourceViral: 'Viral Medsos Rafael',
-    image: '/src/assets/images/seblak_coet_rafael_1793374141342.jpg',
+    image: imgSeblak,
     tableOfContents: [
       { id: 'bahan', label: 'Bahan-Bahan' },
       { id: 'cara-pembuatan', label: 'Cara Pembuatan' },
@@ -239,7 +245,7 @@ export const RECIPES_DATA: Recipe[] = [
     categoryLabel: 'Minuman Kekinian',
     summary: 'Minuman estetik berlapis khas cafe yang viral di media sosial. Lapisan matcha hijau murni berpadu dengan susu dingin dan cold foam awan lembut di atasnya.',
     sourceViral: 'Viral Medsos Cafe Trend',
-    image: '/src/assets/images/matcha_cloud_latte_1793374141729.jpg',
+    image: imgMatcha,
     tableOfContents: [
       { id: 'bahan', label: 'Bahan-Bahan' },
       { id: 'cara-pembuatan', label: 'Cara Pembuatan' },
@@ -331,7 +337,7 @@ export const RECIPES_DATA: Recipe[] = [
     categoryLabel: 'Cemilan & Jajanan',
     summary: 'Camilan aci goreng favorit medsos. Kulit luar putih krispi merekah bak salju, bagian dalam lembut tidak alot, dicocol sambal rujak manis pedas.',
     sourceViral: 'Viral Medsos Jajanan',
-    image: '/src/assets/images/cireng_salju_rujak_1793374142408.jpg',
+    image: imgCireng,
     tableOfContents: [
       { id: 'bahan', label: 'Bahan-Bahan' },
       { id: 'cara-pembuatan', label: 'Cara Pembuatan' },
@@ -423,7 +429,7 @@ export const RECIPES_DATA: Recipe[] = [
     categoryLabel: 'Kue & Dessert',
     summary: 'Pastry spiral viral perpaduan croissant dan bomboloni. Kulit renyah berlapis dengan isian lelehan dark chocolate ganache melimpah.',
     sourceViral: 'Viral Medsos Pastry',
-    image: '/src/assets/images/cromboloni_chocolate_1793374141837.jpg',
+    image: imgCromboloni,
     tableOfContents: [
       { id: 'bahan', label: 'Bahan-Bahan' },
       { id: 'cara-pembuatan', label: 'Cara Pembuatan' },
