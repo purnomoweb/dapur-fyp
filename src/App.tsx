@@ -13,9 +13,23 @@ export default function App() {
   const [activeRecipe, setActiveRecipe] = useState<Recipe | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // Handle URL hash changes for deep linking (e.g. #resep/mie-jebew-garut)
+  // Handle URL pathname and hash changes for deep linking (e.g. /resep/mie-jebew-garut or #resep/mie-jebew-garut)
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleLocationChange = () => {
+      // 1. Check pathname first (for SSG static pre-rendered routes)
+      const pathname = window.location.pathname;
+      const pathMatch = pathname.match(/\/resep\/([a-z0-9-]+)/i);
+      if (pathMatch) {
+        const slug = pathMatch[1];
+        const matched = RECIPES_DATA.find((r) => r.slug === slug || r.id === slug);
+        if (matched) {
+          setActiveRecipe(matched);
+          setCurrentView('detail');
+          return;
+        }
+      }
+
+      // 2. Check hash (for in-page SPA navigation)
       const hash = window.location.hash.replace('#', '');
       if (hash.startsWith('resep/')) {
         const slug = hash.replace('resep/', '');
@@ -26,6 +40,7 @@ export default function App() {
           return;
         }
       }
+
       if (hash === 'kebutuhan') {
         setCurrentView('kebutuhan');
         setActiveRecipe(null);
@@ -42,9 +57,13 @@ export default function App() {
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    handleLocationChange();
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
   }, []);
 
   const handleNavigate = (view: string, category?: string) => {

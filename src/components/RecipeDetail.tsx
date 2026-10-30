@@ -34,8 +34,51 @@ export const RecipeDetail: React.FC<RecipeDetailProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Inject Google Recipe Schema.org JSON-LD dynamically for Google Search indexing
+  // Sync page metadata (title, description, canonical, OpenGraph) and inject Recipe Schema.org JSON-LD
   useEffect(() => {
+    // 1. Update Document Title
+    const originalTitle = document.title;
+    document.title = `${recipe.title} – Resep Viral DapurFYP`;
+
+    // 2. Helper to set or update meta tag content
+    const setMetaTag = (selector: string, attr: string, value: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        if (selector.startsWith('meta[name=')) {
+          const name = selector.match(/meta\[name="([^"]+)"\]/)?.[1];
+          if (name) el.setAttribute('name', name);
+        } else if (selector.startsWith('meta[property=')) {
+          const prop = selector.match(/meta\[property="([^"]+)"\]/)?.[1];
+          if (prop) el.setAttribute('property', prop);
+        }
+        document.head.appendChild(el);
+      }
+      const prevVal = el.getAttribute(attr);
+      el.setAttribute(attr, value);
+      return () => {
+        if (prevVal !== null) {
+          el?.setAttribute(attr, prevVal);
+        }
+      };
+    };
+
+    // Helper for canonical link
+    const originalCanonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') || 'https://purnomoweb.github.io/dapurfyp/';
+    const currentUrl = `https://purnomoweb.github.io/dapurfyp/#resep/${recipe.slug}`;
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', currentUrl);
+    }
+
+    const restoreDesc = setMetaTag('meta[name="description"]', 'content', recipe.summary);
+    const restoreOgTitle = setMetaTag('meta[property="og:title"]', 'content', `${recipe.title} – Resep Viral DapurFYP`);
+    const restoreOgDesc = setMetaTag('meta[property="og:description"]', 'content', recipe.summary);
+    const restoreOgUrl = setMetaTag('meta[property="og:url"]', 'content', currentUrl);
+    const restoreTwTitle = setMetaTag('meta[name="twitter:title"]', 'content', `${recipe.title} – Resep Viral DapurFYP`);
+    const restoreTwDesc = setMetaTag('meta[name="twitter:description"]', 'content', recipe.summary);
+
+    // 3. Inject Google Recipe Schema.org JSON-LD dynamically for Google Search indexing
     const scriptId = 'dynamic-recipe-jsonld';
     let scriptTag = document.getElementById(scriptId) as HTMLScriptElement | null;
     if (!scriptTag) {
@@ -64,12 +107,23 @@ export const RecipeDetail: React.FC<RecipeDetailProps> = ({
       'author': {
         '@type': 'Organization',
         'name': 'DapurFYP',
+        'url': 'https://purnomoweb.github.io/dapurfyp/',
       },
     };
 
     scriptTag.textContent = JSON.stringify(schemaData);
 
     return () => {
+      document.title = originalTitle;
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', originalCanonical);
+      }
+      restoreDesc();
+      restoreOgTitle();
+      restoreOgDesc();
+      restoreOgUrl();
+      restoreTwTitle();
+      restoreTwDesc();
       const tag = document.getElementById(scriptId);
       if (tag) tag.remove();
     };
