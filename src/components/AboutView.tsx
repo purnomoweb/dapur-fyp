@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Sparkles, ShoppingBag } from 'lucide-react';
+import { BookOpen, Sparkles, ChefHat } from 'lucide-react';
 
 export const AboutView: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ export const AboutView: React.FC = () => {
           Banyak resep menarik berseliweran di linimasa TikTok, Instagram Reels, maupun YouTube Shorts. Kami merangkum resep-resep populer tersebut ke dalam bentuk teks yang terstruktur agar mudah dibaca kapan saja saat Anda ingin memasak di rumah.
         </p>
         <p>
-          Setiap artikel berfokus pada tiga bagian utama: <strong className="text-[#ededef]">bahan-bahan</strong>, <strong className="text-[#ededef]">cara pembuatan</strong>, dan <strong className="text-[#ededef]">catatan penting</strong> untuk diperhatikan. Di bagian akhir, kami juga menyertakan tautan rekomendasi kebutuhan dapur seperti bumbu dan perlengkapan terkait.
+          Setiap artikel berfokus pada tiga bagian utama: <strong className="text-[#ededef]">bahan-bahan</strong>, <strong className="text-[#ededef]">cara pembuatan</strong>, dan <strong className="text-[#ededef]">catatan penting</strong> untuk diperhatikan saat mencoba memasak di rumah.
         </p>
       </section>
 
@@ -55,11 +55,11 @@ export const AboutView: React.FC = () => {
           </div>
 
           <div className="flex items-start gap-3">
-            <ShoppingBag className="w-4 h-4 text-[#f59e0b] shrink-0 mt-0.5" />
+            <ChefHat className="w-4 h-4 text-[#f59e0b] shrink-0 mt-0.5" />
             <div>
-              <div className="font-semibold text-[#ededef]">Rekomendasi Kebutuhan Dapur</div>
+              <div className="font-semibold text-[#ededef]">Catatan Praktis</div>
               <p className="text-xs text-[#9ca3af] mt-0.5">
-                Tautan langsung ke alat masak dan bumbu yang sering digunakan pada resep terkait.
+                Poin-poin penting yang perlu diperhatikan agar masakan berhasil saat dicoba.
               </p>
             </div>
           </div>

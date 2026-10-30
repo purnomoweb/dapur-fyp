@@ -1,6 +1,6 @@
 {
   "name": "DapurFYP - Resep Viral Masakan Sosial Media",
-  "description": "Koleksi resep masakan viral media sosial. Rangkuman bahan, cara pembuatan, catatan penting, dan rekomendasi kebutuhan dapur.",
+  "description": "Koleksi resep masakan viral media sosial dengan rangkuman bahan, cara pembuatan, dan catatan penting.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

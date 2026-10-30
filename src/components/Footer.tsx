@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="space-y-2">
               <span className="text-base font-bold text-[#ededef]">DapurFYP</span>
               <p className="text-xs text-[#71717a] leading-relaxed">
-                Koleksi resep masakan viral media sosial. Rangkuman bahan, cara pembuatan, dan rekomendasi kebutuhan dapur.
+                Koleksi resep masakan viral media sosial dengan rangkuman bahan, cara pembuatan, dan catatan penting.
               </p>
             </div>
 
