@@ -6,7 +6,7 @@ export interface RecipeBase {
   categoryLabel: string;
   summary: string;
   sourceViral: string;
-  imageKey: 'mie-jebew' | 'seblak' | 'matcha' | 'cireng' | 'cromboloni';
+  imageKey: 'chocolate-moist-cake' | 'seblak' | 'matcha' | 'cireng' | 'cromboloni';
   tableOfContents: { id: string; label: string }[];
   ingredientGroups: {
     groupName: string;
@@ -39,14 +39,14 @@ export const CATEGORIES = [
 
 export const RAW_RECIPES: RecipeBase[] = [
   {
-    id: 'mie-jebew-garut',
-    slug: 'mie-jebew-garut-pedas-nampol',
-    title: 'Mie Jebew Garut Pedas Gurih Basah',
-    category: 'makanan-utama',
-    categoryLabel: 'Makanan Utama',
-    summary: 'Ramen khas Garut yang viral di sosial media. Perpaduan mie basah kenyal dengan chili oil, kecap manis gurih, dan minyak bawang wangi.',
+    id: 'chocolate-moist-cake',
+    slug: 'resep-chocolate-moist-cake-tanpa-telur',
+    title: 'Resep Chocolate Moist Cake (Kek Ketagih) Tanpa Telur',
+    category: 'kue-dessert',
+    categoryLabel: 'Kue & Dessert',
+    summary: 'Ini dia! Chocolate Moist Cake atau yang disebut dengan Kek Ketagih.',
     sourceViral: 'Viral Medsos Garut',
-    imageKey: 'mie-jebew',
+    imageKey: 'chocolate-moist-cake',
     tableOfContents: [
       { id: 'bahan', label: 'Bahan-Bahan' },
       { id: 'cara-pembuatan', label: 'Cara Pembuatan' },
@@ -55,40 +55,25 @@ export const RAW_RECIPES: RecipeBase[] = [
     ],
     ingredientGroups: [
       {
-        groupName: 'Bahan Utama',
+        groupName: 'Bahan Cake',
         items: [
-          '200 gram mie basah kenyal (atau mie telur gepeng)',
-          'Air bersih untuk merebus mie',
-          '1 sdm minyak goreng untuk tirisan mie',
+          '240 ml susu cair',
+          '140 gram gula pasir',
+          '60 ml minyak sayur',
+          '1/4 sdt garam',
+          '150 gram tepung terigu serbaguna',
+          '50 gram cokelat bubuk',
+          '1 sdt baking powder',
+          '1 sdt bubuk kopi',
         ],
       },
       {
-        groupName: 'Bahan Minyak Bawang',
+        groupName: 'Bahan Cokelat Ganache',
         items: [
-          '6 siung bawang putih, cincang halus',
-          '80 ml minyak goreng',
-          '3 lembar daun jeruk, buang tulang dan iris tipis',
-        ],
-      },
-      {
-        groupName: 'Bahan Sambal & Bumbu',
-        items: [
-          '15 buah cabai rawit merah, rebus lalu ulek kasar',
-          '2 sdm cabai bubuk / chili flakes kasar',
-          '2.5 sdm kecap manis kental',
-          '1.5 sdm kecap asin hitam',
-          '1 sdm saus tiram gurih',
-          '1 sdt kaldu jamur bubuk',
-          '1/2 sdt merica bubuk',
-        ],
-      },
-      {
-        groupName: 'Bahan Topping & Pelengkap',
-        items: [
-          'Pangsit goreng mekar krispi',
-          'Ayam cincang gurih atau bakso iris',
-          'Irisan daun bawang',
-          '1 buah jeruk limau',
+          '250 gram susu cair',
+          '1 sdt agar-agar bubuk plain',
+          '250 gram dark chocolate compound',
+          '1 sdt mentega atau margarin',
         ],
       },
     ],
@@ -96,22 +81,17 @@ export const RAW_RECIPES: RecipeBase[] = [
       {
         stepNumber: 1,
         title: 'Membuat Minyak Bawang',
-        description: 'Panaskan wajan dengan api paling kecil. Masukkan minyak, bawang putih cincang, dan irisan daun jeruk. Masak perlahan hingga bawang berwarna kuning keemasan. Segera matikan api agar bawang tidak gosong.',
+        description: 'Campurkan susu cair dan gula, lalu aduk rata.',
       },
       {
         stepNumber: 2,
         title: 'Meracik Bumbu di Mangkok',
-        description: 'Dalam mangkok saji, campurkan 2 sdm minyak bawang hangat, cabai rawit rebus ulek, chili flakes, kecap manis, kecap asin, saus tiram, dan kaldu jamur. Aduk hingga menyatu.',
+        description: 'Masukkan minyak sayur, lalu aduk rata kembali.',
       },
       {
         stepNumber: 3,
         title: 'Merebus Mie',
-        description: 'Didihkan air di panci. Masukkan mie basah, rebus sekitar 60-90 detik saja hingga matang pas. Angkat dan tiriskan.',
-      },
-      {
-        stepNumber: 4,
-        title: 'Pengadukan dan Penyajian',
-        description: 'Masukkan mie panas ke dalam mangkok bumbu. Aduk cepat hingga mie terlumuri bumbu secara merata. Beri taburan daun bawang, topping pangsit renyah, dan perasan jeruk limau.',
+        description: 'Masukkan tepung terigu, coklat bubuk, baking powder, garam, dan bubuk kopi, lalu aduk rata.',
       },
     ],
     criticalNotes: [
